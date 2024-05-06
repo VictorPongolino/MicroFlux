@@ -1,0 +1,10 @@
+redis:
+  server:
+    address: 127.0.0.1
+    port: 6379
+
+spring:
+  r2dbc:
+    url: r2dbc:mysql://127.0.0.1:3306/product_db
+    username: root
+    password: 123
