@@ -2,6 +2,7 @@ package br.com.pongolino.portfolio.spring.ProductsService.infraestructure.config
 
 import org.redisson.Redisson;
 import org.redisson.api.RedissonClient;
+import org.redisson.api.RedissonReactiveClient;
 import org.redisson.config.Config;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -17,7 +18,11 @@ public class RedissonConfig {
         config.useSingleServer()
                 .setAddress("redis://%s:%s".formatted(serverProperty, serverPort));
 
-
         return Redisson.create(config);
+    }
+
+    @Bean
+    public RedissonReactiveClient redissonReactiveClient(final RedissonClient redissonClient) {
+        return redissonClient.reactive();
     }
 }
