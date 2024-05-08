@@ -13,11 +13,13 @@ public class ProductServiceImpl implements ProductService {
     private final ProductRepository productRepository;
     @Override
     public Mono<Product> getProductById(final Long id) {
+        System.out.println("Getting Product by id " + id);
         return productRepository.findById(id);
     }
 
     @Override
-    public Mono<Product> createProduct(final Product product) {
+    public Mono<Product> save(final Product product) {
+        System.out.println("Saving product with id " + product.getId());
         return productRepository.save(product);
     }
 }

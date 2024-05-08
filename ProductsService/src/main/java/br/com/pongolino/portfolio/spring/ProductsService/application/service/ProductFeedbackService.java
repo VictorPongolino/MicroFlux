@@ -7,5 +7,5 @@ import reactor.core.publisher.Mono;
 public interface ProductFeedbackService {
 
     @Transactional
-    Mono<ProductFeedback> createFeedback(ProductFeedback productFeedback);
+    Mono<ProductFeedback> save(ProductFeedback productFeedback);
 }

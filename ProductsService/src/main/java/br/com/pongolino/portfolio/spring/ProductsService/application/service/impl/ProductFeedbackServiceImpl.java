@@ -1,5 +1,6 @@
 package br.com.pongolino.portfolio.spring.ProductsService.application.service.impl;
 
+import br.com.pongolino.portfolio.spring.ProductsService.application.dao.ProductFeedbackDao;
 import br.com.pongolino.portfolio.spring.ProductsService.application.entity.ProductFeedback;
 import br.com.pongolino.portfolio.spring.ProductsService.application.service.ProductFeedbackService;
 import lombok.RequiredArgsConstructor;
@@ -10,10 +11,10 @@ import reactor.core.publisher.Mono;
 @RequiredArgsConstructor
 public class ProductFeedbackServiceImpl implements ProductFeedbackService {
 
-
+    private final ProductFeedbackDao productFeedbackDao;
 
     @Override
-    public Mono<ProductFeedback> createFeedback(ProductFeedback productFeedback) {
-        return null;
+    public Mono<ProductFeedback> save(final ProductFeedback productFeedback) {
+        return productFeedbackDao.save(productFeedback);
     }
 }

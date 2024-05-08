@@ -20,6 +20,6 @@ public class ProductControllerImpl implements ProductController {
 
     @Override
     public Mono<Product> createProduct(final CreateProductRequest request) {
-        return productService.createProduct(request.toProduct());
+        return productService.save(request.toProduct());
     }
 }
