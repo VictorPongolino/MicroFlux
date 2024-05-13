@@ -37,5 +37,11 @@ public interface ProductController {
     })
     Mono<ServerResponse> updateProduct(UpdateProductRequest request);
 
+    @DeleteMapping
+    @ApiOperation(value = "Delete product")
+    @ApiResponses(value = {
+            @ApiResponse(code = 204, message = "Product successfully deleted"),
+            @ApiResponse(code = 404, message = "Product not found"),
+    })
     Mono<ServerResponse> deleteProduct(Long id);
 }
