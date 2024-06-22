@@ -1,0 +1,20 @@
+spring:
+  main:
+    web-application-type: reactive
+  application:
+    name: demo
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: "http://localhost:8081/realms/myrealm"
+          jwk-set-uri: "${spring.security.oauth2.resourceserver.jwt.issuer-uri}/protocol/openid-connect/certs"
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          lowerCaseServiceId: true
+    kubernetes:
+      discovery:
+        discovery-server-url: "http://spring-cloud-kubernetes-discovery-server:80/"
+        all-namespaces: true
